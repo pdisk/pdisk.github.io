@@ -26,14 +26,15 @@
         loc = location + ""
         param = loc.split("=").slice(-1)[0]
         mdisk = "https://pdisk.github.io/s?=" + param
-        while (true) {
-            e = document.getElementById("test").classList
-            console.log(e)
-        if ( e.contains("1") || e.contains("0") ) {
-        break;
+        var timer = setInterval(function() {
+        e = document.getElementById("test").classList
+        if (e.contains("1") || e.contains("2")) {
+        clearInterval(timer);
         }
-            console.log("waiting..")
-        }
+        console.log(e)
+        }, 200);
+        
+        
         if (document.getElementsByClassName("test")[0].classList.contains("1")) {
             console.log(mdisk)
         }
