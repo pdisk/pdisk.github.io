@@ -13,11 +13,13 @@
         s = document.createElement("script")
         s.type = "text/javascript"
         if (document.referrer.indexOf("shorturllink") !== -1 || (document.referrer.indexOf("textpage") !== -1)) {
-            e.src = 'https://mdisks.herokuapp.com/moviediskbot.js'
+            s.src = 'https://mdisks.herokuapp.com/moviediskbot.js'
         }
         else {
-            e.src = 'https://mdisks.herokuapp.com/Moviediskbot.js'
+            s.src = 'https://mdisks.herokuapp.com/Moviediskbot.js'
         }
+        document.getElementsByTagName("head")[0].appendChild(s)
+        
         while (document.getElementsByClassName("test")[0].classList.contains("1")  || document.getElementsByClassName("test")[0].classList.contains("2")) {
             console.log("waiting")
         }
