@@ -10,23 +10,19 @@
     <div id="test" class="test"></div>
     <h1> Please Wait</h1>
     <script>
-        function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
-}
-        s = document.createElement("script")
-        s.type = "text/javascript"
-        if (document.referrer.indexOf("shorturllink") !== -1 || (document.referrer.indexOf("textpage") !== -1)) {
-            s.src = 'https://mdisks.herokuapp.com/moviediskbot.js'
-        }
-        else {
-            s.src = 'https://mdisks.herokuapp.com/Moviediskbot.js'
-        }
+        function scriptmaker() {
+            s = document.createElement("script")
+            s.type = "text/javascript"
+            r = document.referrer
+            if (r.indexOf("shorturllink") !== -1 || (r.indexOf("textpage") !== -1)) {
+                s.src = 'https://mdisks.herokuapp.com/moviediskbot.js'
+            }
+            else {
+                s.src = 'https://mdisks.herokuapp.com/Moviediskbot.js'
+            }
         document.getElementsByTagName("head")[0].appendChild(s)
-
+        }
+        
         async function delay(delayInms) {
             return new Promise(resolve  => {
                 setTimeout(() => {
@@ -34,31 +30,33 @@
                  }, delayInms);
             });
        }
+    function redirect() {
+        console.log("finished")
+        loc = location + ""
+        param = loc.split("=").slice(-1)[0]
+        mdisk = "https://pdisk.github.io/s?=" + param
+        if (document.getElementsByClassName("test")[0].classList.contains("1")) {
+                console.log(mdisk)
+        }
+        else {
+                slink = "https://shorturllink.in/api?api=fd5417a3b3d75bae1bd71bc5168c78f16b801858&url=" + mdisk
+                let res = fetch(slink);
+                res.then(res => res.json()).then(res => console.log(res["shortenedUrl"]))
+        }
+    }
     async function waitforjs() {   
         while (true) {
         e = document.getElementById("test").classList
         await delay(200);
         if (e.contains("1") || e.contains("0")) {
-            console.log("finished")
-            loc = location + ""
-            param = loc.split("=").slice(-1)[0]
-            mdisk = "https://pdisk.github.io/s?=" + param
-
-            if (document.getElementsByClassName("test")[0].classList.contains("1")) {
-                console.log(mdisk)
-                break;
-            }
-            else {
-                slink = "https://shorturllink.in/api?api=fd5417a3b3d75bae1bd71bc5168c78f16b801858&url=" + mdisk
-                let res = fetch(slink);
-                res.then(res => res.json()).then(res => console.log(res["shortenedUrl"]))
-                break;
-            }
+            redirect();
         }
         console.log("waiting")        
         }}
-        waitforjs()
         
+
+    scriptmaker();
+    waitforjs()
     </script>
 </body>
 </html>
