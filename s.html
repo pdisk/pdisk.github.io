@@ -32,13 +32,7 @@
         loc = location + ""
         param = loc.split("=").slice(-1)[0]
         mdisk = "https://pdisk.github.io/s?=" + param
-        while (true) {
-            wait(1000)
-            e = document.getElementById("test").classList
-            if (e.contains("1") || e.contains("0")) {
-            break;
-            }
-        }
+        
    
         if (document.getElementsByClassName("test")[0].classList.contains("1")) {
             console.log(mdisk)
