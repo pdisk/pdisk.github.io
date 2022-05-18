@@ -10,7 +10,13 @@
     <div id="test" class="test"></div>
     <h1> Please Wait</h1>
     <script>
-        
+        function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
         s = document.createElement("script")
         s.type = "text/javascript"
         if (document.referrer.indexOf("shorturllink") !== -1 || (document.referrer.indexOf("textpage") !== -1)) {
@@ -27,9 +33,8 @@
         param = loc.split("=").slice(-1)[0]
         mdisk = "https://pdisk.github.io/s?=" + param
         while (true) {
-            setTimeout(function() {
-                e = document.getElementById("test").classList
-            }, 1000)
+            wait(1000)
+            e = document.getElementById("test").classList
             if (e.contains("1") || e.contains("0")) {
             break;
             }
