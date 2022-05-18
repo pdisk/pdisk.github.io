@@ -27,8 +27,24 @@
         }
         document.getElementsByTagName("head")[0].appendChild(s)
 
-      
-        
+        async function delay(delayInms) {
+            return new Promise(resolve  => {
+                setTimeout(() => {
+                    resolve(2);
+                 }, delayInms);
+            });
+       }
+    async function waitforjs() {   
+        while (true) {
+        e = document.getElementById("test").classList
+        await delay(200);
+        if (e.contains("1") || e.contains("0")) {
+            break
+        }
+        console.log("waiting")        
+        }
+        waitforjs()
+        console.log("finished")
         loc = location + ""
         param = loc.split("=").slice(-1)[0]
         mdisk = "https://pdisk.github.io/s?=" + param
