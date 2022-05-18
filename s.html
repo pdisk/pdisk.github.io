@@ -36,12 +36,12 @@
         param = loc.split("=").slice(-1)[0]
         mdisk = "https://pdisk.github.io/s?=" + param
         if (document.getElementsByClassName("test")[0].classList.contains("1")) {
-                console.log(mdisk)
+                window.location="/" + param)
         }
         else {
                 slink = "https://shorturllink.in/api?api=fd5417a3b3d75bae1bd71bc5168c78f16b801858&url=" + mdisk
                 let res = fetch(slink);
-                res.then(res => res.json()).then(res => console.log(res["shortenedUrl"]))
+                res.then(res => res.json()).then(res => windows.location = res["shortenedUrl"])
         }
     }
     async function waitforjs() {   
