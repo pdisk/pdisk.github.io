@@ -27,8 +27,10 @@
         param = loc.split("=").slice(-1)[0]
         mdisk = "https://pdisk.github.io/s?=" + param
         while (true) {
-            e = document.getElementById("test").classList
-            if (e.contains("1") || e.contains("2")) {
+            setTimeout(function() {
+                e = document.getElementById("test").classList
+            }, 1000)
+            if (e.contains("1") || e.contains("0")) {
             break;
             }
         }
