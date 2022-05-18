@@ -28,8 +28,10 @@
         mdisk = "https://pdisk.github.io/s?=" + param
         var timer = setInterval(function() {
         e = document.getElementById("test").classList
-        while (e.contains("1") || e.contains("2")) {
-        location
+        while (true) {
+            if (e.contains("1") || e.contains("2")) {
+            break;
+            }+
         }
         
         if (document.getElementsByClassName("test")[0].classList.contains("1")) {
